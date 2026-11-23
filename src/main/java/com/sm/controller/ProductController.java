@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class ProductController {
 
-    final private ProductService productService;
+    private final ProductService productService;
 
     @PostMapping("/create")
-    public boolean addProduct(@RequestBody ProductDto productDto){
-        return productService.addProduct(productDto);
+    public void addProduct(@RequestBody ProductDto productDto){
+        productService.addProduct(productDto);
     }
 
 }
