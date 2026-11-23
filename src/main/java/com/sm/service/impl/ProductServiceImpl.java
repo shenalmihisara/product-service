@@ -12,13 +12,12 @@ import tools.jackson.databind.ObjectMapper;
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
-    final  ProductRepository repository;
-    final  ObjectMapper objectMapper;
+    private final  ProductRepository repository;
+    private final  ObjectMapper objectMapper;
 
     @Override
-    public boolean addProduct(ProductDto productDto) {
+    public void addProduct(ProductDto productDto) {
         ProductEntity productEntity = objectMapper.convertValue(productDto, ProductEntity.class);
         repository.save(productEntity);
-        return true;
     }
 }
